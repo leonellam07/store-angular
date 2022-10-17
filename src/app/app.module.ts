@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ItemComponent } from './item/item.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { ItemComponent } from './item/item.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
