@@ -1,1 +1,52 @@
-<p>invoice works!</p>
+<div class="row p-1 mt-4">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="row align-items-center p-4">
+        <div class="col-1">
+          <img class="img-invoice" src="./assets/Invoice2.png" />
+        </div>
+        <div class="col-9 col-sm-9 col-xl-9 p-0 px-5">
+          <h5 class="title">Facturas</h5>
+
+          <div class="input-group flex-nowrap callout">
+            <button class="btn btn-primary" (click)="add()">Nuevo</button>
+          </div>
+        </div>
+        <div
+          class="col-sm-2 col-xl-2 pl-0 text-center align-items-center"
+        ></div>
+      </div>
+
+      <table class="table">
+      <thead>
+        <tr>
+
+          <th scope="col">No.</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Total</th>
+          <th scope="col">Impuesto</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let factura of facturasModel" >
+          <th>{{factura.id}}</th>
+          <td>`{{factura.cliente.primerNombre}} {{factura.cliente.apellidos}}`</td>
+          <td>{{factura.fechaCreacion}}</td>
+          <td>${{factura.total}}</td>
+          <td>${{factura.impuesto}}</td>
+          <td>
+            <div class="d-grid gap-2 d-md-flex ">
+              <button class="btn btn-primary btn-sm"  title="Editar"  (click)="edit(factura.id)">Editar</button>
+              <button class="btn btn-info btn-sm"  title="Mostrar" (click)="detail(factura.id)">Mostar</button>
+              <button class="btn btn-warning btn-sm"  title="Cancelar" (click)="cancel(factura.id)">Cancelar</button>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
