@@ -1,0 +1,346 @@
+<div class="row p-1 mt-4">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="row adivgn-items-center p-4">
+        <div class="col-1">
+          <img class="img-invoice" src="./assets/Invoice2.png" />
+        </div>
+        <div class="col-9 col-sm-9 col-xl-9 p-0 px-5">
+          <h5 class="title">Nueva Factura</h5>
+
+          <div class="input-group flex-nowrap callout">
+            <button class="btn btn-secondary" (click)="regresar()">
+              Regresar
+            </button>
+          </div>
+        </div>
+        <div
+          class="col-sm-2 col-xl-2 pl-0 text-center adivgn-items-center"
+        ></div>
+      </div>
+      <div class="row adivgn-items-center p-4">
+        <form
+          [formGroup]="formAdd"
+          novadivdate="novadivdate"
+          (ngSubmit)="guardar()"
+        >
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="control-label mb-1">Primer Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Primer Nombre"
+                  formControlName="primerNombre"
+                  [ngClass]="{
+                    'is-invadivd':
+                      formAdd.get('primerNombre').errors?.required &&
+                      formAdd.get('primerNombre').touched === true
+                  }"
+                />
+                <div
+                  *ngIf="
+                    formAdd.get('primerNombre').errors?.required &&
+                    formAdd.get('primerNombre').touched === true
+                  "
+                  class="form-control-feedback text-danger"
+                >
+                  El Primer Nombre es necesario
+                </div>
+                <div
+                  *ngIf="
+                    !!formAdd.get('primerNombre').errors?.maxlength &&
+                    formAdd.get('primerNombre').touched === true
+                  "
+                  class="form-control-feedback text-danger"
+                >
+                  Máximo de caracteres de
+                  <strong>{{
+                    formAdd.get("primerNombre").errors?.maxlength.requiredLength
+                  }}</strong>
+                  caracteres actuales
+                  <strong>{{
+                    formAdd.get("primerNombre").errors?.maxlength.actualLength
+                  }}</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-group">
+                <label class="control-label mb-1">Segundo Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Segundo nombre"
+                  formControlName="segundoNombre"
+                  [ngClass]="{
+                    'is-invadivd':
+                      formAdd.get('segundoNombre').errors?.required &&
+                      formAdd.get('segundoNombre').touched === true
+                  }"
+                />
+                <div
+                  *ngIf="
+                    formAdd.get('segundoNombre').errors?.required &&
+                    formAdd.get('segundoNombre').touched === true
+                  "
+                  class="form-control-feedback text-danger"
+                >
+                  El primer nombre es necesario
+                </div>
+                <div
+                  *ngIf="
+                    !!formAdd.get('segundoNombre').errors?.maxlength &&
+                    formAdd.get('segundoNombre').touched === true
+                  "
+                  class="form-control-feedback text-danger"
+                >
+                  Máximo de caracteres de
+                  <strong>{{
+                    formAdd.get("segundoNombre").errors?.maxlength
+                      .requiredLength
+                  }}</strong>
+                  caracteres actuales
+                  <strong>{{
+                    formAdd.get("segundoNombre").errors?.maxlength.actualLength
+                  }}</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="control-label mb-1">apellidos</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="apellidos"
+                  formControlName="apellidos"
+                  [ngClass]="{
+                    'is-invadivd':
+                      formAdd.get('apellidos').errors?.required &&
+                      formAdd.get('apellidos').touched === true
+                  }"
+                />
+                <div
+                  *ngIf="
+                    formAdd.get('apellidos').errors?.required &&
+                    formAdd.get('apellidos').touched === true
+                  "
+                  class="form-control-feedback text-danger"
+                >
+                  El primer nombre es necesario
+                </div>
+                <div
+                  *ngIf="
+                    !!formAdd.get('apellidos').errors?.maxlength &&
+                    formAdd.get('apellidos').touched === true
+                  "
+                  class="form-control-feedback text-danger"
+                >
+                  Máximo de caracteres de
+                  <strong>{{
+                    formAdd.get("apellidos").errors?.maxlength.requiredLength
+                  }}</strong>
+                  caracteres actuales
+                  <strong>{{
+                    formAdd.get("apellidos").errors?.maxlength.actualLength
+                  }}</strong>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="control-label mb-1">NIT</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="nit"
+                  formControlName="nit"
+                  [ngClass]="{
+                    'is-invadivd':
+                      formAdd.get('nit').errors?.required &&
+                      formAdd.get('nit').touched === true
+                  }"
+                />
+                <div
+                  *ngIf="
+                    formAdd.get('nit').errors?.required &&
+                    formAdd.get('nit').touched === true
+                  "
+                  class="form-control-feedback text-danger"
+                >
+                  El primer nombre es necesario
+                </div>
+                <div
+                  *ngIf="
+                    !!formAdd.get('nit').errors?.maxlength &&
+                    formAdd.get('nit').touched === true
+                  "
+                  class="form-control-feedback text-danger"
+                >
+                  Máximo de caracteres de
+                  <strong>{{
+                    formAdd.get("nit").errors?.maxlength.requiredLength
+                  }}</strong>
+                  caracteres actuales
+                  <strong>{{
+                    formAdd.get("nit").errors?.maxlength.actualLength
+                  }}</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label class="control-label mb-1">Direccion</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="direccion"
+                  formControlName="direccion"
+                  [ngClass]="{
+                    'is-invadivd':
+                      formAdd.get('direccion').errors?.required &&
+                      formAdd.get('direccion').touched === true
+                  }"
+                />
+                <div
+                  *ngIf="
+                    formAdd.get('direccion').errors?.required &&
+                    formAdd.get('direccion').touched === true
+                  "
+                  class="form-control-feedback text-danger"
+                >
+                  Es necesario la direccion
+                </div>
+                <div
+                  *ngIf="
+                    !!formAdd.get('direccion').errors?.maxlength &&
+                    formAdd.get('direccion').touched === true
+                  "
+                  class="form-control-feedback text-danger"
+                >
+                  Máximo de caracteres de
+                  <strong>{{
+                    formAdd.get("direccion").errors?.maxlength.requiredLength
+                  }}</strong>
+                  caracteres actuales
+                  <strong>{{
+                    formAdd.get("direccion").errors?.maxlength.actualLength
+                  }}</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" formArrayName="facturaDetalles">
+            <div class="container-md p-4">
+              <h5 class="title">Detalles</h5>
+              <hr />
+              <div class="row">
+                <div class="col-sm-3 text-center">Articulo</div>
+                <div class="col-sm-1 text-center">Cantidad</div>
+                <div class="col-sm-2 text-center">Precio</div>
+                <div class="col-sm-2 text-center">Impuesto</div>
+                <div class="col-sm-2 text-center">Total</div>
+                <div class="col-sm-2 text-center">Opciones</div>
+              </div>
+              <hr />
+            </div>
+
+            <div
+              class="col-md-12 container-sm"
+              *ngFor="
+                let detalleForm of facturaDetalles.controls;
+                let i = index
+              "
+            >
+              <div class="row" [formGroupName]="i">
+                <div class="col-sm-3">
+                  <select class="form-control" formControlName="articuloId" (change)="cambiarPrecioSelect($event, i)">
+                    <option value="0">Seleccione un articulo</option>
+                    <option
+                      *ngFor="let dept of articulosModel"
+                      value="{{ dept.id }}"
+                    >
+                      {{ dept.descripcion }}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-sm-1">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="cantidad"
+                    formControlName="cantidad"
+                    (change)="cambiarPrecioText($event, i)"
+                  />
+                </div>
+                <div class="col-sm-2">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="precio"
+                    formControlName="precio"
+                    readonly="true"
+                  />
+                </div>
+                <div class="col-sm-2">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="impuesto"
+                    formControlName="impuesto"
+                    readonly="true"
+                  />
+                </div>
+                <div class="col-sm-2">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="total"
+                    formControlName="total"
+                    readonly="true"
+                  />
+                </div>
+                <div class="col-sm-2">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-warning btn-block"
+                    (click)="eliminarLinea(i)"
+                  >
+                    <span>Eliminar</span>
+                  </button>
+                </div>
+                <hr />
+              </div>
+            </div>
+          </div>
+          <div class="row p-2">
+            <div class="col-12 d-flex justify-content-center">
+              <button
+                type="button"
+                class="btn btn-sm btn-warning btn-block"
+                (click)="agregarDetalle()"
+              >
+                <span>Agregar Detalle</span>
+              </button>
+            </div>
+          </div>
+          <div class="row p-2">
+            <div class="col-12 d-flex justify-content-end">
+              <button type="submit" class="btn btn-primary btn-block">
+                <span>Guardar</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

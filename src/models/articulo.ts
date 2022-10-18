@@ -1,10 +1,10 @@
 export class articulo {
-  public Id: number = 0;
-  public Codigo: string = '';
-  public Descripcion: string = '';
-  public Precio: number = 0.0;
-  public Costo: number = 0.0;
-  public Cantidad: string = '';
-  public Cancelado: string = '';
+  public id: number = 0;
+  public codigo: string = '';
+  public descripcion: string = '';
+  public precio: number = 0.0;
+  public costo: number = 0.0;
+  public cantidad: number = 0;
+  public cancelado: boolean = false;
   constructor() {}
 }
