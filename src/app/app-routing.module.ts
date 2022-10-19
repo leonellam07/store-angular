@@ -4,6 +4,7 @@ import { AddInvoiceComponent } from './invoice/add-invoice/add-invoice.component
 import { DetailInvoiceComponent } from './invoice/detail-invoice/detail-invoice.component';
 import { EditInvoiceComponent } from './invoice/edit-invoice/edit-invoice.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { ShowInvoiceComponent } from './invoice/show-invoice/show-invoice.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'detail/:id',
-    component : DetailInvoiceComponent
+    component : ShowInvoiceComponent
   },
   {
     path: 'edit/:id',

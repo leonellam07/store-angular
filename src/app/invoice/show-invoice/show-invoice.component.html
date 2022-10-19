@@ -6,7 +6,7 @@
           <img class="img-invoice" src="./assets/Invoice2.png" />
         </div>
         <div class="col-9 col-sm-9 col-xl-9 p-0 px-5">
-          <h5 class="title">Nueva Factura</h5>
+          <h5 class="title">Editar Factura</h5>
 
           <div class="input-group flex-nowrap callout">
             <button class="btn btn-secondary" (click)="regresar()">
@@ -22,8 +22,38 @@
         <form
           [formGroup]="formAdd"
           novadivdate="novadivdate"
-          (ngSubmit)="guardar()"
+          (ngSubmit)="anular()"
         >
+          <div class="row">
+            <div class="col-3">
+              <div class="form-group">
+                <label class="control-label mb-1">No. Factura</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="No. Factura"
+                  formControlName="id"
+                  readonly="true"
+                  disabled="true"
+                />
+              </div>
+            </div>
+            <div class="col-5">
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label class="control-label mb-1">Fecha Creacion</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Fecha"
+                  formControlName="fechaCreacion"
+                  readonly="true"
+                  disabled="true"
+                />
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-6">
               <div class="form-group">
@@ -33,6 +63,7 @@
                   class="form-control"
                   placeholder="Primer Nombre"
                   formControlName="primerNombre"
+                  disabled="true"
                   [ngClass]="{
                     'is-invalid':
                       formAdd.get('primerNombre').errors?.required &&
@@ -75,6 +106,7 @@
                   class="form-control"
                   placeholder="Segundo nombre"
                   formControlName="segundoNombre"
+                  disabled="true"
                   [ngClass]="{
                     'is-invalid':
                       formAdd.get('segundoNombre').errors?.required &&
@@ -119,6 +151,7 @@
                   class="form-control"
                   placeholder="apellidos"
                   formControlName="apellidos"
+                  disabled="true"
                   [ngClass]="{
                     'is-invalid':
                       formAdd.get('apellidos').errors?.required &&
@@ -160,6 +193,7 @@
                   class="form-control"
                   placeholder="nit"
                   formControlName="nit"
+                  disabled="true"
                   [ngClass]="{
                     'is-invalid':
                       formAdd.get('nit').errors?.required &&
@@ -203,6 +237,7 @@
                   class="form-control"
                   placeholder="direccion"
                   formControlName="direccion"
+                  disabled="true"
                   [ngClass]="{
                     'is-invalid':
                       formAdd.get('direccion').errors?.required &&
@@ -292,6 +327,7 @@
                     placeholder="precio"
                     formControlName="precio"
                     readonly="true"
+                    disabled="true"
                   />
                 </div>
                 <div class="col-sm-2">
@@ -301,6 +337,7 @@
                     placeholder="impuesto"
                     formControlName="impuesto"
                     readonly="true"
+                    disabled="true"
                   />
                 </div>
                 <div class="col-sm-2">
@@ -310,47 +347,20 @@
                     placeholder="total"
                     formControlName="total"
                     readonly="true"
+                    disabled="true"
                   />
                 </div>
                 <div class="col-sm-2">
-                  <button
-                    type="button"
-                    class="btn btn-sm btn-warning btn-block"
-                    (click)="eliminarLinea(i)"
-                  >
-                    <span>Eliminar</span>
-                  </button>
                 </div>
                 <hr />
               </div>
             </div>
           </div>
           <div class="row p-2">
-            <div class="col-12 d-flex justify-content-center">
-              <button
-                type="button"
-                class="btn btn-sm btn-warning btn-block"
-                (click)="agregarDetalle()"
-              >
-                <span>Agregar Detalle</span>
-              </button>
-            </div>
-          </div>
-          <div class="row p-2">
             <div class="col-12 d-flex justify-content-end">
-              <div class="form-group p-2">
-                <input
-                  type="checkbox"
-                  formControlName="cerrada"
-
-                />
-                <label class="control-label mb-1 p-1">Guardar y Cerrar</label>
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">
-                  <span>Guardar</span>
-                </button>
-              </div>
+              <button type="submit" class="btn btn-danger btn-block" [disabled]="!facturaModel.cancelada && !facturaModel.cerrada">
+                <span>Anular Factura</span>
+              </button>
             </div>
           </div>
         </form>

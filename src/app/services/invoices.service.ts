@@ -19,8 +19,18 @@ export class InvoicesService {
   }
 
   post(factura:factura){
-    debugger
-    console.log(JSON.stringify(factura))
     return this.http.post<factura>(`${environment.API}/Factura`, JSON.parse(JSON.stringify(factura)))
+  }
+
+  put(factura:factura){
+    return this.http.put<factura>(`${environment.API}/Factura`, JSON.parse(JSON.stringify(factura)))
+  }
+
+  cancel(id:number){
+    return this.http.post(`${environment.API}/Factura/cancel?id=${id}`,{})
+  }
+
+  delete(id:number){
+    return this.http.delete(`${environment.API}/Factura?id=${id}`,{})
   }
 }

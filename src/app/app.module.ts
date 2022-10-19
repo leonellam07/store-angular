@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddInvoiceComponent } from './invoice/add-invoice/add-invoice.component';
 import { DetailInvoiceComponent } from './invoice/detail-invoice/detail-invoice.component';
 import { EditInvoiceComponent } from './invoice/edit-invoice/edit-invoice.component';
+import { ShowInvoiceComponent } from './invoice/show-invoice/show-invoice.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditInvoiceComponent } from './invoice/edit-invoice/edit-invoice.compon
     ItemComponent,
     AddInvoiceComponent,
     DetailInvoiceComponent,
-    EditInvoiceComponent
+    EditInvoiceComponent,
+    ShowInvoiceComponent
   ],
   imports: [
     BrowserModule,

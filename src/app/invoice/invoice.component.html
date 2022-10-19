@@ -20,7 +20,6 @@
       <table class="table">
       <thead>
         <tr>
-
           <th scope="col">No.</th>
           <th scope="col">Nombres</th>
           <th scope="col">Fecha</th>
@@ -32,15 +31,17 @@
       <tbody>
         <tr *ngFor="let factura of facturasModel" >
           <th>{{factura.id}}</th>
-          <td>`{{factura.cliente.primerNombre}} {{factura.cliente.apellidos}}`</td>
+          <td>{{factura.cliente.primerNombre}} {{factura.cliente.segundoNombre}} {{factura.cliente.apellidos}}</td>
           <td>{{factura.fechaCreacion}}</td>
           <td>${{factura.total}}</td>
           <td>${{factura.impuesto}}</td>
           <td>
-            <div class="d-grid gap-2 d-md-flex ">
-              <button class="btn btn-primary btn-sm"  title="Editar"  (click)="edit(factura.id)">Editar</button>
-              <button class="btn btn-info btn-sm"  title="Mostrar" (click)="detail(factura.id)">Mostar</button>
-              <button class="btn btn-warning btn-sm"  title="Cancelar" (click)="cancel(factura.id)">Cancelar</button>
+            <div class="d-grid gap-2 d-md-flex justify-content-end">
+              <label *ngIf="!factura.cancelada && !factura.cerrada"> Borrador </label>
+              <label *ngIf="factura.cancelada"> Anulada </label>
+              <label *ngIf="factura.cerrada"> Cerrada </label>
+              <button class="btn btn-primary btn-sm"  title="Editar"  (click)="edit(factura.id)" [disabled]="factura.cancelada">Editar</button>
+              <button class="btn btn-info btn-sm"  title="Mostrar" (click)="detail(factura.id)" [disabled]="factura.cancelada">Mostar</button>
             </div>
           </td>
         </tr>
